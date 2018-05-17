@@ -4,7 +4,7 @@ public class BankAccountTest {
     public static void main(String[] args) {
         // Banking Menu Options
         Object[] menuOptions = {"Setup Account","Update Account", "Exit App"};
-        // Setting up the Message Box
+        // Setting up the Message Box Frame
         JFrame frame = new JFrame();
         // Setting up Bank Account initializer
         BankAccount myAccount = new BankAccount();
@@ -24,6 +24,7 @@ public class BankAccountTest {
             // If user selects Setup Account
             if(o == 0){
                 myAccount = setupAccount();
+                // Display the account and its information
                 JOptionPane.showMessageDialog(frame,myAccount.getAccountInfo());
             }
             // If user selects update account
@@ -34,7 +35,6 @@ public class BankAccountTest {
                     updateAccount(myAccount, frame);
                     JOptionPane.showMessageDialog(frame,myAccount.getAccountInfo());
                 }
-
             }
         }  while(o != 2);
     } // End of Main
@@ -74,9 +74,9 @@ public class BankAccountTest {
                     } catch (NumberFormatException nfe){
                         x--;
                     }
-                }
-            }
-        }
+                }// End else if
+            }// End else
+        }// End for loop
         // For system command prompts
         System.out.println("Setup Complete");
         // Returns with new information added to the bank account
