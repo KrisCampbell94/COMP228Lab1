@@ -28,15 +28,17 @@ public class BankAccount {
     public BankAccount(int accountNo, String name, double balance) {
         this.accountNo = accountNo;
         this.name = name;
-        this.balance = balance;
+        if(balance > 0.0)
+            this.balance = balance;
     }
     // A method to withdraw or deposit an amount to the total balance
     public void withdrawOrDeposit(double amount, boolean isWithdraw){
-        if(isWithdraw) {
-            balance -= amount;
-        }
-        else {
-            balance += amount;
+        if(amount > 0.0) {
+            if (isWithdraw) {
+                balance -= amount;
+            } else {
+                balance += amount;
+            }
         }
     }
     // Returns the account info in a neatly typed string
